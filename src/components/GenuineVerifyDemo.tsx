@@ -45,8 +45,8 @@ export const GenuineVerifyDemo: React.FC<GenuineVerifyDemoProps> = ({
     <>
       <style>{`
         video, canvas {
-          width: 320px !important;
-          height: 240px !important;
+          width: 480px !important;
+          height: 360px !important;
           max-width: none !important;
           max-height: none !important;
           min-width: 0 !important;
@@ -55,7 +55,7 @@ export const GenuineVerifyDemo: React.FC<GenuineVerifyDemoProps> = ({
           box-sizing: content-box !important;
         }
       `}</style>
-      <div style={{ width: 320, height: 240, position: 'relative', margin: '40px auto', background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ width: 480, height: 360, position: 'relative', margin: '40px auto', background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <GenuineWidgetEmbeddable
           key={widgetKey}
           onTokenIssued={handleTokenIssued}
