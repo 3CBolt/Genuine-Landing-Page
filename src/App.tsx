@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react';
-import { ChevronRight, Zap, CheckCircle, Github, Download, Eye, Code, Lock, Bot, AlertTriangle, ArrowRight } from 'lucide-react';
+import { CheckCircle, Github, Download, Code, Lock, Bot, AlertTriangle, ArrowRight, User, Shield, FileText, Key } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const Switch = React.lazy(() => import('@/components/ui/switch').then(mod => ({ default: mod.Switch })));
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -60,9 +60,89 @@ function App() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6 bg-[#0A0A0A] text-center">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">Presence is the new primitive</h1>
-          <p className="text-xl text-[#999] mb-8">Genuine verifies real-time human presence for AI-native applications.</p>
-          <Button size="lg" onClick={() => scrollToSection('demo')} className="bg-[#6366F1] hover:bg-[#818CF8] text-white px-8 py-4 text-lg font-semibold rounded-full transition-colors">Try the Demo <ChevronRight className="ml-2 h-5 w-5" /></Button>
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight flex flex-col items-center">
+            <span className="text-[#6366F1] text-4xl sm:text-5xl mb-2">Genuine</span>
+            The human security layer for AI agents.
+          </h1>
+          <p className="text-xl text-[#999] mb-8">
+            Verify real human presence—no puzzles, no surveillance. Just gestures and proof. Built for platforms, developers, and autonomous systems that need to trust the humans behind the commands.
+          </p>
+          <Button size="lg" onClick={() => scrollToSection('waitlist')} className="bg-[#6366F1] hover:bg-[#818CF8] text-white px-8 py-4 text-lg font-semibold rounded-full transition-colors">
+            <Lock className="mr-2 h-5 w-5" /> Join the Beta Waitlist
+          </Button>
+        </div>
+      </section>
+
+      {/* How It Works (NEW) */}
+      <section className="py-16 px-6 bg-[#111]">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">How Genuine Works</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {[
+            {
+              icon: User,
+              title: 'User Performs a Real-Time Gesture',
+              desc: 'A quick, natural movement like a head tilt proves the user is physically present. No biometrics, no recordings, no invasions.'
+            },
+            {
+              icon: Shield,
+              title: 'Presence Token Is Created',
+              desc: 'A cryptographic token is generated in the browser, proving a human was verified at a moment in time.'
+            },
+            {
+              icon: Bot,
+              title: 'Agents or APIs Verify the Token',
+              desc: 'Apps or agents check this token before executing tasks. Supports JS SDK and REST API.'
+            },
+          ].map((item, i) => (
+            <Card key={i} className="bg-[#18181B] border-0 shadow-none flex flex-col items-center p-6 rounded-2xl transition-transform hover:scale-105 hover:shadow-lg">
+              <CardHeader className="pb-2 flex flex-col items-center">
+                <div className="bg-[#232323] p-3 rounded-full mb-2"><item.icon className="h-6 w-6 text-[#6366F1]" /></div>
+                <CardTitle className="text-base font-semibold text-[#EAEAEA] text-center">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-[#bbb] text-sm text-center leading-relaxed">{item.desc}</CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Use Cases (NEW) */}
+      <section className="py-16 px-6 bg-[#18181B] text-center">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Where to Use Genuine</h2>
+        </div>
+        <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          {[
+            {
+              icon: Bot,
+              title: 'AI Agent Verification',
+              desc: 'Confirm a real human approved an agent’s task.'
+            },
+            {
+              icon: FileText,
+              title: 'Form & Workflow Protection',
+              desc: 'Replace CAPTCHAs on sensitive forms.'
+            },
+            {
+              icon: Key,
+              title: 'API & Resource Gating',
+              desc: 'Require a presence token before unlocking secure APIs.'
+            },
+            {
+              icon: Shield,
+              title: 'Authentication Enhancer',
+              desc: 'Add presence checks to login or delegation workflows.'
+            },
+          ].map((item, i) => (
+            <Card key={i} className="bg-[#232323] border-0 shadow-none flex flex-col items-center p-6 rounded-2xl transition-transform hover:scale-105 hover:shadow-lg">
+              <CardHeader className="pb-2 flex flex-col items-center">
+                <div className="bg-[#18181B] p-2 rounded-lg mb-2"><item.icon className="h-5 w-5 text-[#6366F1]" /></div>
+                <CardTitle className="text-base font-semibold text-[#EAEAEA] text-center">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-[#bbb] text-sm text-center leading-relaxed">{item.desc}</CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -109,48 +189,7 @@ function App() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-6 bg-[#111]">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">How it works</h2>
-        </div>
-        <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              step: '1',
-              title: 'Gesture Initiation',
-              desc: 'Start by performing a simple gesture, like a head tilt, to prove you are present and human.',
-              icon: Eye
-            },
-            {
-              step: '2',
-              title: 'On-Device Analysis',
-              desc: 'Genuine instantly verifies your presence and gesture on your device—no data leaves your browser.',
-              icon: Bot
-            },
-            {
-              step: '3',
-              title: 'Token Issuance',
-              desc: 'A secure, short-lived token is generated, cryptographically signed for your session.',
-              icon: CheckCircle
-            },
-            {
-              step: '4',
-              title: 'Seamless Access',
-              desc: 'Use your token to unlock features, trigger agents, or reuse it across trusted apps and flows.',
-              icon: Zap
-            },
-          ].map((item, i) => (
-            <Card key={i} className="bg-[#18181B] border-0 shadow-none flex flex-col items-center p-6 rounded-2xl transition-transform hover:scale-105 hover:shadow-lg">
-              <CardHeader className="pb-2 flex flex-col items-center">
-                <div className="bg-[#232323] p-3 rounded-full mb-2"><item.icon className="h-6 w-6 text-[#6366F1]" /></div>
-                <span className="text-2xl font-bold text-[#6366F1] mb-1">{item.step}</span>
-                <CardTitle className="text-base font-semibold text-[#EAEAEA] text-center">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-[#bbb] text-sm text-center leading-relaxed">{item.desc}</CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+      {/* (REMOVE the old How it works section here) */}
 
       {/* Live Demo */}
       <section id="demo" className="py-16 px-6 bg-[#18181B] text-center">
@@ -260,6 +299,15 @@ function App() {
         <div className="max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">Want updates or early access to SDK features?</h3>
           <WaitlistWidget />
+        </div>
+      </section>
+
+      {/* YC-style Summary Blurb (NEW) */}
+      <section className="py-8 px-6 bg-[#18181B] text-center">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-lg text-[#bbb] font-medium">
+            Genuine is building the presence layer for AI agents—verifying that a real human is behind the request, not a bot or deepfake.
+          </p>
         </div>
       </section>
 
