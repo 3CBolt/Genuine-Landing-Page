@@ -118,6 +118,11 @@ function App() {
 }`}
           </pre>
         </div>
+        
+        {/* Why Now */}
+        <p className="text-sm text-zinc-400 mt-4 max-w-xl mx-auto text-center">
+          As agentic AI systems scale, the internet still has no reliable way to prove a real human is behind the command. Genuine solves that.
+        </p>
       </section>
 
       {/* Use Cases (NEW) */}
@@ -322,6 +327,14 @@ function App() {
             Genuine is building the presence layer for AI agents—verifying that a real human is behind the request, not a bot or deepfake.
           </p>
         </div>
+      </section>
+
+      {/* What's Next */}
+      <section className="mt-24 text-center max-w-2xl mx-auto px-4">
+        <h4 className="text-lg font-semibold text-white">What's Next</h4>
+        <p className="text-zinc-400 mt-2">
+          This is just the beginning. We're building toward delegated agent trust, session-based presence tokens, and authenticationless workflows. Presence is the new primitive.
+        </p>
       </section>
 
       {/* Second CTA + Social Proof */}
