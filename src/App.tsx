@@ -58,7 +58,7 @@ function App() {
       </header>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 bg-[#0A0A0A] text-center">
+      <section className="pt-32 md:pt-40 pb-20 px-6 bg-[#0A0A0A] text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight flex flex-col items-center">
             <span className="text-[#6366F1] text-4xl sm:text-5xl mb-2">Genuine</span>
@@ -67,7 +67,7 @@ function App() {
           <p className="text-xl text-[#999] mb-8">
             Verify real human presence—no puzzles, no surveillance. Just gestures and proof. Built for platforms, developers, and autonomous systems that need to trust the humans behind the commands.
           </p>
-          <Button size="lg" onClick={() => scrollToSection('waitlist')} className="bg-[#6366F1] hover:bg-[#818CF8] text-white px-8 py-4 text-lg font-semibold rounded-full transition-colors">
+          <Button size="lg" onClick={() => scrollToSection('waitlist')} className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-md shadow-lg transition-all duration-200 text-lg font-semibold">
             <Lock className="mr-2 h-5 w-5" /> Join the Beta Waitlist
           </Button>
         </div>
@@ -98,12 +98,25 @@ function App() {
           ].map((item, i) => (
             <Card key={i} className="bg-[#18181B] border-0 shadow-none flex flex-col items-center p-6 rounded-2xl transition-transform hover:scale-105 hover:shadow-lg">
               <CardHeader className="pb-2 flex flex-col items-center">
-                <div className="bg-[#232323] p-3 rounded-full mb-2"><item.icon className="h-6 w-6 text-[#6366F1]" /></div>
+                <div className="bg-[#232323] p-3 rounded-full mb-2"><item.icon className="h-8 w-8 text-[#6366F1]" /></div>
                 <CardTitle className="text-base font-semibold text-[#EAEAEA] text-center">{item.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-[#bbb] text-sm text-center leading-relaxed">{item.desc}</CardContent>
             </Card>
           ))}
+        </div>
+        
+        {/* Token Output Preview */}
+        <div className="bg-zinc-900 rounded-lg p-4 text-left font-mono text-sm mt-8 shadow-md max-w-2xl mx-auto">
+          <p className="text-zinc-400 mb-2">Example Presence Token:</p>
+          <pre className="overflow-x-auto text-green-400 whitespace-pre-wrap">
+{`{
+  "verified": true,
+  "gesture": "head_tilt",
+  "timestamp": "2025-07-12T16:14:03Z",
+  "token_id": "abc123"
+}`}
+          </pre>
         </div>
       </section>
 
@@ -117,7 +130,7 @@ function App() {
             {
               icon: Bot,
               title: 'AI Agent Verification',
-              desc: 'Confirm a real human approved an agent’s task.'
+              desc: 'Confirm a real human approved an agent\'s task.'
             },
             {
               icon: FileText,
@@ -137,7 +150,7 @@ function App() {
           ].map((item, i) => (
             <Card key={i} className="bg-[#232323] border-0 shadow-none flex flex-col items-center p-6 rounded-2xl transition-transform hover:scale-105 hover:shadow-lg">
               <CardHeader className="pb-2 flex flex-col items-center">
-                <div className="bg-[#18181B] p-2 rounded-lg mb-2"><item.icon className="h-5 w-5 text-[#6366F1]" /></div>
+                <div className="bg-[#18181B] p-2 rounded-lg mb-2"><item.icon className="h-8 w-8 text-[#6366F1]" /></div>
                 <CardTitle className="text-base font-semibold text-[#EAEAEA] text-center">{item.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-[#bbb] text-sm text-center leading-relaxed">{item.desc}</CardContent>
@@ -309,6 +322,14 @@ function App() {
             Genuine is building the presence layer for AI agents—verifying that a real human is behind the request, not a bot or deepfake.
           </p>
         </div>
+      </section>
+
+      {/* Second CTA + Social Proof */}
+      <section className="text-center mt-20 pb-16 px-6">
+        <p className="text-zinc-400 mb-4 text-sm">Trusted by early agent platforms and privacy-first developers</p>
+        <Button size="lg" onClick={() => scrollToSection('waitlist')} className="bg-violet-600 hover:bg-violet-700 text-white font-medium px-6 py-3 rounded-md shadow-md transition-all duration-200">
+          <Lock className="mr-2 h-5 w-5" /> Join the Private Beta
+        </Button>
       </section>
 
       {/* Footer */}
